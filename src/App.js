@@ -13,8 +13,8 @@ const App = () => {
   return (
     <React.Fragment>
       <ContentHeader />
-      <MainImage />
-      <SlideMenu />
+      <MainImage image={items.imageUrl} productList={items.ProductList} />
+      <SlideMenu productList={items.ProductList} />
     </React.Fragment>
   );
 };
