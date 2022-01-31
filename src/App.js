@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { ContentHeader, MainImage, SlideMenu } from './Components';
 import { getData } from './service/Api';
+
 const App = () => {
-  const [items, setItems] = useState({ id: '', imageUrl: '', productList: '' });
+  const [items, setItems] = useState('');
 
   useEffect(() => {
     getData().then(res => {
-      setItems({ id: res.id, imageUrl: res.imageUrl, productList: res.productList });
+      setItems(res);
     });
   }, []);
-  return <div></div>;
+  return (
+    <React.Fragment>
+      <ContentHeader />
+      <MainImage />
+      <SlideMenu />
+    </React.Fragment>
+  );
 };
 
 export default App;
