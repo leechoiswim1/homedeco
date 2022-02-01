@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-const ProductMain = ({ imageUrl, productList }) => {
-  const productX = [];
+import { SlideMenu } from './';
+const ProductMain = ({ imageUrl, productList, newX }) => {
   return (
     <Wrapper>
       <ProductImage src={imageUrl} alt="productImage" />
@@ -13,6 +13,7 @@ const ProductMain = ({ imageUrl, productList }) => {
             </Magnify>
           );
         })}
+      <SlideMenu productList={productList} newX={newX} />
     </Wrapper>
   );
 };
