@@ -1,23 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { SlideItem } from 'Components';
-const SlideMenu = ({ productList, newX }) => {
-  console.log(newX);
+import { Pagination, Scrollbar } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+
+const SlideMenu = ({ productList, handleSelect, selectProduct }) => {
   return (
     <SlideWrapper>
-      <SlideSwiper id="slide" newX={newX}>
+      <Swiper
+        modules={[Pagination, Scrollbar]}
+        spaceBetween={10}
+        slidesPerView={6}
+        scrollbar={{ draggable: true }}
+      >
         {productList &&
           productList.map(product => {
             return (
-              <SlideItem
-                key={product.productId}
-                id={product.productId}
-                imageUrl={product.imageUrl}
-                discountRate={product.discountRate}
-              />
+              <SwiperSlide key={product.productId}>
+                <SlideItem
+                  id={product.productId}
+                  imageUrl={product.imageUrl}
+                  discountRate={product.discountRate}
+                  handleSelect={handleSelect}
+                  selectProduct={selectProduct}
+                />
+              </SwiperSlide>
             );
           })}
-      </SlideSwiper>
+      </Swiper>
     </SlideWrapper>
   );
 };
@@ -29,18 +40,6 @@ const SlideWrapper = styled.div`
   background-color: #fff;
   padding: 0 10px;
   margin: 0;
-`;
-
-const SlideSwiper = styled.div.attrs(props => ({
-  style: { transform: `translate3d(${props.newX}px, 0px,0px)` },
-}))`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  display: flex;
-  transition-property: transform;
-  box-sizing: content-box;
 `;
 
 export default SlideMenu;
