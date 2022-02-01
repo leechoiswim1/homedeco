@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 const ProductMain = ({ imageUrl, productList }) => {
+  const productX = [];
   return (
     <Wrapper>
       <ProductImage src={imageUrl} alt="productImage" />
@@ -11,7 +12,7 @@ const ProductMain = ({ imageUrl, productList }) => {
               <MagIcon src="//cdn.ggumim.co.kr/storage/20211029145238AlZrQ41xtg.png" />
             </Magnify>
           );
-        })}{' '}
+        })}
     </Wrapper>
   );
 };
@@ -27,8 +28,8 @@ const ProductImage = styled.img`
 `;
 const Magnify = styled.div`
   position: absolute;
-  top: ${props => props.pointY && props.pointY}px;
-  left: ${props => props.pointX && props.pointX}px;
+  top: ${props => props.pointX && props.pointX * 1.6}px;
+  left: ${props => props.pointY && props.pointY * 1.65}px;
   width: 40px;
   height: 40px;
 `;
