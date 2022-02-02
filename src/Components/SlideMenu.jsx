@@ -7,12 +7,13 @@ import 'swiper/css';
 
 const SlideMenu = ({ productList, handleSelect, selectProduct }) => {
   return (
-    <SlideWrapper>
+    <SlideWrapper id="SliderWrapper">
       <Swiper
         modules={[Pagination, Scrollbar]}
-        spaceBetween={10}
+        spaceBetween={5}
         slidesPerView={6}
         scrollbar={{ draggable: true }}
+        style={{ overflowX: 'auto' }}
       >
         {productList &&
           productList.map(product => {
