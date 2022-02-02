@@ -27,7 +27,7 @@ const ProductMain = ({ imageUrl, productList }) => {
         productList.map(product => {
           const newPointX = product.pointX * 1.6;
           const newPointY = product.pointY * 1.65;
-          const BottomBox = imageHeight && imageHeight / 2 - newPointX < 0 ? true : false;
+          const BottomBox = imageHeight / 2 - newPointX < 0 ? true : false;
           const leftBox = imageWidth - newPointY < imageWidth / 2 ? true : false;
           return (
             <div key={product.productId}>
