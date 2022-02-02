@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import styled, { css } from 'styled-components';
+import * as S from 'styles/SlideStyle';
+
 const SlideItem = ({ id, imageUrl, discountRate, handleSelect, selectProduct }) => {
   const [selectedItem, setSelectedItem] = useState(false);
   useEffect(() => {
     setSelectedItem(selectProduct === id ? true : false);
   }, [selectProduct]);
   return (
-    <SlideItemWrapper selectedItem={selectedItem}>
-      <SlideItemImage
+    <S.SlideItemWrapper selectedItem={selectedItem}>
+      <S.SlideItemImage
         id={id}
         imageUrl={imageUrl}
         selectedItem={selectedItem}
@@ -15,56 +16,9 @@ const SlideItem = ({ id, imageUrl, discountRate, handleSelect, selectProduct }) 
           handleSelect(id);
         }}
       />
-      {discountRate > 0 && <DisCountBadge>{discountRate}%</DisCountBadge>}
-    </SlideItemWrapper>
+      {discountRate > 0 && <S.DisCountBadge>{discountRate}%</S.DisCountBadge>}
+    </S.SlideItemWrapper>
   );
 };
-const SlideItemWrapper = styled.section`
-  display: inline-flex;
-  justify-content: center;
-  width: fit-content;
-  height: fit-content;
-  margin: 28px 6px;
-  position: relative;
-  transition-property: transform;
-  flex-shrink: 0;
-  ${props =>
-    props.selectedItem &&
-    css`
-      background: linear-gradient(163.54deg, #ff659e 8.22%, #f56b30 94.1%);
-      margin: 26px 4px;
-      padding: 2px;
-      border-radius: 18px;
-    `}
-`;
-const SlideItemImage = styled.div`
-  position: relative;
-  width: 106px;
-  height: 106px;
-  border-radius: 16px;
-  border: ${props => (props.selectedItem ? 'none' : '0.5px solid #aaafb9')};
-  user-select: none;
-  cursor: pointer;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: ${props => props.imageUrl && `url(${props.imageUrl})`};
-`;
-const DisCountBadge = styled.div`
-  position: absolute;
-  top: 0;
-  right: 5px;
-  background-image: url(//cdn.ggumim.co.kr/storage/20211117191419RW6JS6bjRm.png);
-  width: 24px;
-  height: 28px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  font-size: 11px;
-  font-weight: bold;
-  line-height: 25px;
-  color: white;
-  text-align: center;
-  padding-left: 1px;
-`;
+
 export default SlideItem;

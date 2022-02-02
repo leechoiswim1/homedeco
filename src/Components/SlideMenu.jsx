@@ -1,13 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import { SlideItem } from 'Components';
 import { Pagination, Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import * as S from 'styles/SlideStyle';
 import 'swiper/css';
 
 const SlideMenu = ({ productList, handleSelect, selectProduct }) => {
   return (
-    <SlideWrapper id="SliderWrapper">
+    <S.SlideWrapper id="SliderWrapper">
       <Swiper
         modules={[Pagination, Scrollbar]}
         spaceBetween={5}
@@ -30,17 +31,8 @@ const SlideMenu = ({ productList, handleSelect, selectProduct }) => {
             );
           })}
       </Swiper>
-    </SlideWrapper>
+    </S.SlideWrapper>
   );
 };
-const SlideWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  overflow-y: hidden;
-  overflow-x: auto;
-  background-color: #fff;
-  padding: 0 10px;
-  margin: 0;
-`;
 
 export default SlideMenu;

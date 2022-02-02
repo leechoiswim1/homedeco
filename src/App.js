@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ContentHeader, ProductMain } from './Components';
 import { getData } from './service/Api';
-import styled from 'styled-components';
+import * as S from 'styles/AppStyle';
 const App = () => {
   const [items, setItems] = useState('');
 
@@ -12,17 +12,11 @@ const App = () => {
   }, []);
 
   return (
-    <Wrapper>
+    <S.Wrapper>
       <ContentHeader />
       <ProductMain imageUrl={items.imageUrl} productList={items.productList} />
-    </Wrapper>
+    </S.Wrapper>
   );
 };
-
-const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  margin: auto;
-`;
 
 export default App;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import styled from 'styled-components';
-import { SlideMenu, DescBox } from './';
+import { SlideMenu, DescBox } from 'Components';
+import * as S from 'styles/ProductMainStyle';
 
 const ProductMain = ({ imageUrl, productList }) => {
   const [selectProduct, setSelectProduct] = useState('');
@@ -16,8 +16,8 @@ const ProductMain = ({ imageUrl, productList }) => {
   }, [imageUrl]);
 
   return (
-    <Wrapper>
-      <ProductImage
+    <S.ProductWrapper>
+      <S.ProductImage
         ref={imageRef}
         src={imageUrl}
         alt="productImage"
@@ -31,12 +31,12 @@ const ProductMain = ({ imageUrl, productList }) => {
           const leftBox = imageWidth - newPointY < imageWidth / 2 ? true : false;
           return (
             <div key={product.productId}>
-              <Magnify
+              <S.Magnify
                 newPointX={newPointX}
                 newPointY={newPointY}
                 onClick={() => handleSelect(product.productId)}
               >
-                <MagIcon
+                <S.MagIcon
                   src={
                     selectProduct === product.productId
                       ? 'https://cdn.ggumim.co.kr/storage/20211029145330GwwumnWNSs.png'
@@ -49,7 +49,7 @@ const ProductMain = ({ imageUrl, productList }) => {
                   boxDisplay={selectProduct === product.productId ? 'flex' : 'none'}
                   product={product}
                 />
-              </Magnify>
+              </S.Magnify>
             </div>
           );
         })}
@@ -58,32 +58,8 @@ const ProductMain = ({ imageUrl, productList }) => {
         handleSelect={handleSelect}
         selectProduct={selectProduct}
       />
-    </Wrapper>
+    </S.ProductWrapper>
   );
 };
-
-const Wrapper = styled.section`
-  width: 800px;
-  height: auto;
-  margin: auto;
-  position: relative;
-`;
-const ProductImage = styled.img`
-  width: 800px;
-`;
-
-const Magnify = styled.div`
-  position: absolute;
-  top: ${props => props.newPointX && props.newPointX}px;
-  left: ${props => props.newPointY && props.newPointY}px;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-`;
-
-const MagIcon = styled.img`
-  width: 32px;
-  height: 32px;
-`;
 
 export default ProductMain;
