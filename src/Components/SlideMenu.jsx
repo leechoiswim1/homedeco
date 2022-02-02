@@ -10,7 +10,7 @@ const SlideMenu = ({ productList, handleSelect, selectProduct }) => {
     <S.SlideWrapper id="SliderWrapper">
       <Swiper
         modules={[Pagination, Scrollbar]}
-        slidesPerView={6.5}
+        slidesPerView={6}
         scrollbar={{ draggable: true }}
         style={{ overflowX: 'auto' }}
       >
@@ -22,6 +22,7 @@ const SlideMenu = ({ productList, handleSelect, selectProduct }) => {
                   id={product.productId}
                   imageUrl={product.imageUrl}
                   discountRate={product.discountRate}
+                  outside={product.outside}
                   handleSelect={handleSelect}
                   selectProduct={selectProduct}
                 />

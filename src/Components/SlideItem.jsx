@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as S from 'styles/SlideStyle';
 
-const SlideItem = ({ id, imageUrl, discountRate, handleSelect, selectProduct }) => {
+const SlideItem = ({ id, imageUrl, discountRate, handleSelect, selectProduct, outside }) => {
   const [selectedItem, setSelectedItem] = useState(false);
   useEffect(() => {
     setSelectedItem(selectProduct === id ? true : false);
@@ -16,7 +16,7 @@ const SlideItem = ({ id, imageUrl, discountRate, handleSelect, selectProduct }) 
           handleSelect(id);
         }}
       />
-      {discountRate > 0 && <S.DisCountBadge>{discountRate}%</S.DisCountBadge>}
+      {!outside && <S.DisCountBadge>{discountRate}%</S.DisCountBadge>}
     </S.SlideItemWrapper>
   );
 };
