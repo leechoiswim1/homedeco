@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { SlideItem } from 'Components';
 import { Pagination, Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,8 +10,7 @@ const SlideMenu = ({ productList, handleSelect, selectProduct }) => {
     <S.SlideWrapper id="SliderWrapper">
       <Swiper
         modules={[Pagination, Scrollbar]}
-        spaceBetween={5}
-        slidesPerView={6}
+        slidesPerView={6.5}
         scrollbar={{ draggable: true }}
         style={{ overflowX: 'auto' }}
       >
