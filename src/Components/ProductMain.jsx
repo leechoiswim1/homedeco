@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import styled, { css } from 'styled-components';
-import { SlideMenu } from './';
+import styled from 'styled-components';
+import { SlideMenu, DescBox } from './';
 
 const ProductMain = ({ imageUrl, productList }) => {
   const [selectProduct, setSelectProduct] = useState('');
@@ -13,8 +13,8 @@ const ProductMain = ({ imageUrl, productList }) => {
   useEffect(() => {
     setImageHeight(imageRef.current.height);
     setImageWidth(imageRef.current.width);
-  }, []);
-  console.log(imageWidth);
+  }, [imageUrl]);
+
   return (
     <Wrapper>
       <ProductImage
@@ -28,8 +28,7 @@ const ProductMain = ({ imageUrl, productList }) => {
           const newPointX = product.pointX * 1.6;
           const newPointY = product.pointY * 1.65;
           const BottomBox = imageHeight && imageHeight / 2 - newPointX < 0 ? true : false;
-          const leftBox = imageWidth - newPointY < 220 ? true : false;
-
+          const leftBox = imageWidth - newPointY < imageWidth / 2 ? true : false;
           return (
             <div key={product.productId}>
               <Magnify
@@ -47,8 +46,9 @@ const ProductMain = ({ imageUrl, productList }) => {
                 <DescBox
                   BottomBox={BottomBox}
                   leftBox={leftBox}
-                  boxDisplay={selectProduct === product.productId ? 'block' : 'none'}
-                ></DescBox>
+                  boxDisplay={selectProduct === product.productId ? 'flex' : 'none'}
+                  product={product}
+                />
               </Magnify>
             </div>
           );
@@ -78,43 +78,12 @@ const Magnify = styled.div`
   left: ${props => props.newPointY && props.newPointY}px;
   width: 40px;
   height: 40px;
+  cursor: pointer;
 `;
 
 const MagIcon = styled.img`
   width: 32px;
   height: 32px;
-`;
-
-const DescBox = styled.span`
-  box-sizing: border-box;
-  z-index: 1000;
-  display: ${props => props.boxDisplay && props.boxDisplay};
-  align-items: center;
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.95);
-  width: 220px;
-  height: 86px;
-  padding: 8px 0 8px 8px;
-  margin-top: 16px;
-  border-radius: 7px;
-  box-shadow: 3px 3px 8px 0 rgb(0 0 0 / 20%);
-  font-size: 14px;
-  color: #4a4a4a;
-  ${props =>
-    props.BottomBox && props.BottomBox
-      ? css`
-          top: unset;
-          bottom: 52px;
-        `
-      : css`
-          top: 28px;
-          left: -20px;
-        `}
-  ${props =>
-    props.leftBox &&
-    css`
-      left: -160px;
-    `}
 `;
 
 export default ProductMain;
