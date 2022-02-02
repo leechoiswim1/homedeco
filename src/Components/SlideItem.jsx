@@ -15,7 +15,7 @@ const SlideItem = ({ id, imageUrl, discountRate, handleSelect, selectProduct }) 
           handleSelect(id);
         }}
       />
-      <DisCountBox></DisCountBox>
+      {discountRate > 0 && <DisCountBadge>{discountRate}%</DisCountBadge>}
     </SlideItemWrapper>
   );
 };
@@ -50,5 +50,21 @@ const SlideItemImage = styled.div`
   background-size: cover;
   background-image: ${props => props.imageUrl && `url(${props.imageUrl})`};
 `;
-const DisCountBox = styled.div``;
+const DisCountBadge = styled.div`
+  position: absolute;
+  top: 0;
+  right: 5px;
+  background-image: url(//cdn.ggumim.co.kr/storage/20211117191419RW6JS6bjRm.png);
+  width: 24px;
+  height: 28px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 25px;
+  color: white;
+  text-align: center;
+  padding-left: 1px;
+`;
 export default SlideItem;
