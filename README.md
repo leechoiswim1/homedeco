@@ -12,8 +12,6 @@ https://ggumimhomedeco.netlify.app/
 
 ### ✨ 설명
 
-![HomeDecoDescImage](src\styles\images\HomeDecoDescImage.PNG)
-
 ##### [상품 설명 버튼 변경]
 
 - 가구 위 돋보기 모양을 클릭하면 tooltip이 표시되고 버튼은 닫기버튼으로 변경
