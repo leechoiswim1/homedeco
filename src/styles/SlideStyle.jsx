@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+
 export const SlideWrapper = styled.div`
   display: flex;
   align-items: center;
