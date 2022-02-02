@@ -3,9 +3,10 @@ import * as S from 'styles/SlideStyle';
 
 const SlideItem = ({ id, imageUrl, discountRate, handleSelect, selectProduct, outside }) => {
   const [selectedItem, setSelectedItem] = useState(false);
+
   useEffect(() => {
     setSelectedItem(selectProduct === id ? true : false);
-  }, [selectProduct]);
+  }, [selectProduct, id]);
   return (
     <S.SlideItemWrapper selectedItem={selectedItem}>
       <S.SlideItemImage
