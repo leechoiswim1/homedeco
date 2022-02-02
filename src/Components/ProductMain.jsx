@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { SlideMenu, DescBox } from 'Components';
+import { SlideMenu, ToolTip } from 'Components';
 import * as S from 'styles/ProductMainStyle';
 
 const ProductMain = ({ imageUrl, productList }) => {
@@ -43,7 +43,7 @@ const ProductMain = ({ imageUrl, productList }) => {
                       : '//cdn.ggumim.co.kr/storage/20211029145238AlZrQ41xtg.png'
                   }
                 />
-                <DescBox
+                <ToolTip
                   BottomBox={BottomBox}
                   leftBox={leftBox}
                   boxDisplay={selectProduct === product.productId ? 'flex' : 'none'}

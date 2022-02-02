@@ -1,7 +1,7 @@
 import React from 'react';
-import * as S from 'styles/DescStyle';
+import * as S from 'styles/ToolTipStyle';
 import commaNumber from 'utils/commaNumber';
-const DescBox = ({ BottomBox, leftBox, boxDisplay, product }) => {
+const ToolTip = ({ BottomBox, leftBox, boxDisplay, product }) => {
   return (
     <S.DescWrapper BottomBox={BottomBox} leftBox={leftBox} boxDisplay={boxDisplay}>
       <S.DescImage productImage={product.imageUrl}></S.DescImage>
@@ -28,4 +28,4 @@ const DescBox = ({ BottomBox, leftBox, boxDisplay, product }) => {
   );
 };
 
-export default DescBox;
+export default ToolTip;
