@@ -11,6 +11,7 @@ ggumim 인테리어 관련 물품 판매 페이지 구현 과제
 https://ggumimhomedeco.netlify.app/
 
 ### ✨ 설명
+![HomeDecoDescImage](https://user-images.githubusercontent.com/85476908/152180643-76b90291-fbd4-4c9a-a585-5f5d5c81e442.PNG)
 
 ##### [상품 설명 버튼 변경]
 
@@ -54,7 +55,6 @@ https://ggumimhomedeco.netlify.app/
     │   ├── Components
     │   ├── service
     │   ├── styles
-    │   │   └──images
     │   └── utils
     └── some_more_file.xxx
 
