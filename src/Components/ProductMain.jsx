@@ -13,7 +13,7 @@ const ProductMain = ({ imageUrl, productList }) => {
   useEffect(() => {
     setImageHeight(imageRef.current.height);
     setImageWidth(imageRef.current.width);
-  }, [imageUrl]);
+  }, [selectProduct]);
 
   return (
     <S.ProductWrapper>
