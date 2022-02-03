@@ -7,7 +7,7 @@ import 'swiper/css';
 
 const SlideMenu = ({ productList, handleSelect, selectProduct }) => {
   return (
-    <S.SlideWrapper id="SliderWrapper">
+    <S.SlideWrapper>
       <Swiper
         modules={[Pagination, Scrollbar]}
         slidesPerView={6}
