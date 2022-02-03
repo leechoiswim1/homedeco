@@ -25,8 +25,8 @@ const ProductMain = ({ imageUrl, productList }) => {
       />
       {productList &&
         productList.map(product => {
-          const newPointX = product.pointX * 1.6;
-          const newPointY = product.pointY * 1.65;
+          const newPointX = product.pointX * 1.67;
+          const newPointY = product.pointY * 1.67;
           const BottomBox = imageHeight / 2 - newPointX < 0 ? true : false;
           const leftBox = imageWidth - newPointY < imageWidth / 2 ? true : false;
           return (
