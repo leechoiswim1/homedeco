@@ -2,7 +2,7 @@ import React from 'react';
 import { SlideItem } from 'Components';
 import { Pagination, Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import * as S from 'styles/SlideStyle';
+import * as S from 'Components/SlideItem/Slide.style';
 import 'swiper/css';
 import { SlideMenuProps } from './SlideMenu.type';
 
