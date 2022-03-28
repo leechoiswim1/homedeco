@@ -11,6 +11,7 @@ ggumim 인테리어 관련 물품 판매 페이지 구현 과제
 https://ggumimhomedeco.netlify.app/
 
 ### ✨ 설명
+
 ![HomeDecoDescImage](https://user-images.githubusercontent.com/85476908/152180643-76b90291-fbd4-4c9a-a585-5f5d5c81e442.PNG)
 
 ##### [상품 설명 버튼 변경]
@@ -55,6 +56,7 @@ https://ggumimhomedeco.netlify.app/
     │   ├── Components
     │   ├── service
     │   ├── styles
+    │   ├── page
     │   └── utils
     └── some_more_file.xxx
 
@@ -62,4 +64,4 @@ https://ggumimhomedeco.netlify.app/
 
 ---
 
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23323330.svg?style=for-the-badge&logo=typescript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
