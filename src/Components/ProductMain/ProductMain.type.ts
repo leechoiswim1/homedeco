@@ -1,3 +1,8 @@
+export interface MagnifyProps {
+  newPointX: number;
+  newPointY: number;
+}
+
 export interface ProductListType {
   discountRate: number;
   imageUrl: string;

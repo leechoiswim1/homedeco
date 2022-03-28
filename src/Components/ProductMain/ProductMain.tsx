@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { SlideMenu, ToolTip } from 'Components';
-import * as S from 'styles/ProductMainStyle';
+import * as S from './ProductMain.style';
 import { ProductMainProps } from './ProductMain.type';
 
 const ProductMain = ({ imageUrl, productLists }: ProductMainProps) => {
@@ -51,7 +51,7 @@ const ProductMain = ({ imageUrl, productLists }: ProductMainProps) => {
                 <ToolTip
                   BottomBox={BottomBox}
                   leftBox={leftBox}
-                  boxDisplay={selectProduct === product.productId ? 'flex' : 'none'}
+                  boxDisplay={selectProduct === product.productId}
                   product={product}
                 />
               </S.Magnify>
