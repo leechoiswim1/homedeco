@@ -1,18 +1,23 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { SlideMenu, ToolTip } from 'Components';
 import * as S from 'styles/ProductMainStyle';
+import { ProductMainProps } from './ProductMain.type';
 
-const ProductMain = ({ imageUrl, productList }) => {
-  const [selectProduct, setSelectProduct] = useState('');
-  const [imageHeight, setImageHeight] = useState('');
-  const [imageWidth, setImageWidth] = useState('');
-  const imageRef = useRef();
-  const handleSelect = productId => {
+const ProductMain = ({ imageUrl, productLists }: ProductMainProps) => {
+  const [selectProduct, setSelectProduct] = useState<number>();
+  const [imageHeight, setImageHeight] = useState<number>();
+  const [imageWidth, setImageWidth] = useState<number>();
+  const imageRef = useRef<HTMLImageElement>(null);
+  const handleSelect = (productId: number) => {
     productId === selectProduct ? setSelectProduct(0) : setSelectProduct(productId);
   };
   useEffect(() => {
-    setImageHeight(imageRef.current.height);
-    setImageWidth(imageRef.current.width);
+    if (imageRef.current) {
+      setImageHeight(imageRef.current.height);
+      setImageWidth(imageRef.current.width);
+    } else {
+      return;
+    }
   }, [selectProduct]);
 
   return (
@@ -23,12 +28,12 @@ const ProductMain = ({ imageUrl, productList }) => {
         alt="productImage"
         onClick={() => handleSelect(0)}
       />
-      {productList &&
-        productList.map(product => {
+      {productLists &&
+        productLists.map(product => {
           const newPointX = product.pointX * 1.67;
           const newPointY = product.pointY * 1.67;
-          const BottomBox = imageHeight / 2 - newPointX < 0 ? true : false;
-          const leftBox = imageWidth - newPointY < imageWidth / 2 ? true : false;
+          const BottomBox = imageHeight && imageHeight / 2 - newPointX < 0 ? true : false;
+          const leftBox = imageWidth && imageWidth - newPointY < imageWidth / 2 ? true : false;
           return (
             <div key={product.productId}>
               <S.Magnify
@@ -54,7 +59,7 @@ const ProductMain = ({ imageUrl, productList }) => {
           );
         })}
       <SlideMenu
-        productList={productList}
+        productLists={productLists}
         handleSelect={handleSelect}
         selectProduct={selectProduct}
       />
