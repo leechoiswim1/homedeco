@@ -4,8 +4,9 @@ import { Pagination, Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import * as S from 'styles/SlideStyle';
 import 'swiper/css';
+import { SlideMenuProps } from './SlideMenu.type';
 
-const SlideMenu = ({ productList, handleSelect, selectProduct }) => {
+const SlideMenu = ({ productLists, handleSelect, selectProduct }: SlideMenuProps) => {
   return (
     <S.SlideWrapper>
       <Swiper
@@ -14,8 +15,8 @@ const SlideMenu = ({ productList, handleSelect, selectProduct }) => {
         scrollbar={{ draggable: true }}
         style={{ overflowX: 'auto' }}
       >
-        {productList &&
-          productList.map(product => {
+        {productLists &&
+          productLists.map(product => {
             return (
               <SwiperSlide key={product.productId}>
                 <SlideItem
