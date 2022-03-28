@@ -10,7 +10,4 @@ describe('commaNumber', () => {
   test('commaNumber(9999999) => "9,999,999"', () => {
     expect(commaNumber(9999999)).toBe('9,999,999');
   });
-  test('commaNumber("1000 10") => "1,000 10"', () => {
-    expect(commaNumber('1000 10')).toBe('1,000 10');
-  });
 });
