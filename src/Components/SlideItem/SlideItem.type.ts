@@ -10,6 +10,6 @@ export interface SlideItemProps {
   imageUrl: imageUrlType;
   discountRate: number;
   handleSelect: (productId: number) => void;
-  selectProduct?: number;
+  selectProduct: number | null;
   outside: boolean;
 }
