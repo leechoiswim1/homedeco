@@ -1,16 +1,19 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { SlideMenu, ToolTip } from 'Components';
 import * as S from './ProductMain.style';
 import { ProductMainProps } from './ProductMain.type';
 
 const ProductMain = ({ imageUrl, productLists }: ProductMainProps) => {
-  const [selectProduct, setSelectProduct] = useState<number>();
+  const [selectProduct, setSelectProduct] = useState<number | null>(null);
   const [imageHeight, setImageHeight] = useState<number>();
   const [imageWidth, setImageWidth] = useState<number>();
   const imageRef = useRef<HTMLImageElement>(null);
-  const handleSelect = (productId: number) => {
-    productId === selectProduct ? setSelectProduct(0) : setSelectProduct(productId);
-  };
+  const handleSelect = useCallback(
+    (productId: number | null) => {
+      productId === selectProduct ? setSelectProduct(0) : setSelectProduct(productId);
+    },
+    [setSelectProduct, selectProduct]
+  );
   useEffect(() => {
     if (imageRef.current) {
       setImageHeight(imageRef.current.height);
@@ -26,7 +29,7 @@ const ProductMain = ({ imageUrl, productLists }: ProductMainProps) => {
         ref={imageRef}
         src={imageUrl}
         alt="productImage"
-        onClick={() => handleSelect(0)}
+        onClick={() => handleSelect(null)}
       />
       {productLists &&
         productLists.map(product => {
