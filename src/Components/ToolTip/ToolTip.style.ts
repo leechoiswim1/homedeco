@@ -15,7 +15,7 @@ export const DescWrapper = styled.span<DescWrapperProps>`
   border-radius: 7px;
   box-shadow: 3px 3px 8px 0 rgb(0 0 0 / 20%);
   font-size: 14px;
-  color:  ${({ theme }) => theme.colors.descGray}
+  color: ${({ theme }) => theme.colors.descGray};
   &:before {
     content: '';
     position: absolute;
